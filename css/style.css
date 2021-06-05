@@ -1,21 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-}
-html{
     font-family: 'Montserrat', sans-serif;
 }
-ul{
+ul {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'Montserrat', sans-serif;
+}
+p{
+    font-size: 16px;
+}
+.hero-btn{
+    background-color: #222;
+    color: #fff;
+    padding: 14px 28px;
+    border: 1px solid #222;
+    font-size: 14px;
+}
+#arrow{
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
 /*==================navigation==================*/
-header{
+header {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -27,48 +50,166 @@ header{
     -ms-flex-align: center;
     align-items: center;
 }
-header .nav-left{
+
+header .nav-left {
     padding: 10px 14px;
     background-color: #8EE3BB;
 }
-.nav ul{
+
+.nav ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
-.nav ul li{
+
+.nav ul li {
     margin: 8px 10px;
 }
-.nav ul li a{
+
+.nav ul li a {
     color: #171717;
     font-size: 21px;
     font-style: italic;
 }
-.nav-right a{
+
+.nav-right a {
     font-size: 21px;
     padding: 8px 10px;
     color: #171717;
 }
+
 /*==================hero section==================*/
-.hero{
+.slick-next{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #8EE3BB;
+    color:#333;
+    font-size: 14px;
+    border: none;
+    padding: 18px 26px;
+    font-weight: 500;
+}
+.slick-prev{
+   position: absolute;
+    bottom: 0;
+    right: 5%;
+    background-color: #8EE3BB;
+    color:#333;
+    font-size: 14px;
+    border: none;
+    padding: 18px 26px;
+    font-weight: 500;
+    z-index: 10;
+}
+.hero {
     width: 100%;
     height: 100vh;
 }
-.hero-slider{
+
+.hero-slider {
     width: 100%;
 }
+
 .hero-slider .slider-1,
 .hero-slider .slider-2,
-.hero-slider .slider-3{
+.hero-slider .slider-3 {
     width: 100%;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
-.hero-slider .slider-1{
+
+.hero-slider .slider-1 {
     background-color: #FFE399;
 }
-.hero-slider .slider-2{
+
+.hero-slider .slider-2 {
     background-color: #8EE3BB;
 }
-.hero-slider .slider-3{
+
+.hero-slider .slider-3 {
     background-color: #FFD0BA;
+}
+
+.hero-slider .slider-1 .inner-left {
+    background: url(../assets/images/banner/banner-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hero-slider .slider-2 .inner-left {
+    background: url(../assets/images/banner/banner-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hero-slider .slider-3 .inner-left {
+    background: url(../assets/images/banner/banner-3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hero-slider .slider-1 .inner-left,
+.hero-slider .slider-2 .inner-left,
+.hero-slider .slider-3 .inner-left {
+    width: 60%;
+}
+
+.hero-slider .slider-1 .inner-right,
+.hero-slider .slider-2 .inner-right,
+.hero-slider .slider-3 .inner-right {
+    width: 40%;
+}
+.hero-slider .slider-1 .inner-right .text{
+    width: 100%;
+    padding: 40px 30px 0 30px;
+}
+.number{
+    font-size: 18px;
+    color: #272727;
+    font-style: italic;
+}
+.hero-slider .slider-1 .inner-right .text h2{
+    font-size: 34px;
+    font-weight: bold;
+    color: #171717;
+    margin: 10px 0 12px 0;
+}
+.hero-slider .slider-1 .inner-right .text p{
+    margin: 20px 0;
+    line-height: 26px;
+    color: #2b2b2b;
+}
+.hero-slider .slider-1 .inner-right .text button{
+    font-style: italic;
+}
+.hero-slider .slider-1 .inner-right .text button:hover{
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    -webkit-box-shadow: 1px 1px 1px rgba(1,1,1,.5);
+    box-shadow: 2px 2px 8px rgba(1,1,1,.5);
+}
+#arrow:hover{
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.hero-slider .slider-1 .inner-right .map{
+    width: 100;
+    margin-top: 50px;
+}
+.hero-slider .slider-1 .inner-right .map ul li{
+    margin: 0 8px;
+}
+.hero-slider .slider-1 .inner-right .map ul li a{
+    font-size: 14px;
+    color: #2B2B2B;
+}
+.hero-slider .slider-1 .inner-right .map ul li a i{
+    color: #2B2B2B;
+    font-size: 16px;
+    margin: 0 4px;
 }
