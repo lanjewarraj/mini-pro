@@ -15,6 +15,7 @@
     <!-- owl carousel-->
     <link rel="stylesheet" href="css/owl_caresoul/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl_caresoul/owl.theme.default.min.css">
+    <!-- fancybox-->
     <link rel="stylesheet" href="css/fancybox/jquery.fancybox.min.css">
     <!-- main style-->
     <link rel="stylesheet" href="css/style.css">
@@ -114,7 +115,7 @@
                                     <span class="sub-head"><?php echo $cat; ?></span>
                                     <h3><?php echo $title; ?></h3>
                                     <p><?php echo $desc; ?></p>
-                                    <a href="view_video?<?php echo $link; ?>$vid=<?php echo $id; ?>">View More <span class="arrow">&#8594;</span></a>
+                                    <a href="course?vid=<?php echo $id; ?>&vname=<?php echo $title; ?>">View More <span class="arrow">&#8594;</span></a>
                                 </div>
                             </div>
                         </div>
@@ -153,10 +154,21 @@
                                 $cat = $row['category'];
                                 $desc = $row['description'];
                                 $link = $row['video_link'];
+                                $thumb = $row['video_thumb'];
                                 $added_at = $row['added_at'];
                                 ?>
                             <div class="item-video">
-                                <a class="owl-video" href="https://www.youtube.com/watch?v=LTT4MYQqz4o" data-fancybox data-caption="<?php echo $title;?>">play</a>
+                                <div class="video">
+                                    <div class="row mb-4 g-0">
+                                        <div class="card-deck col-9">
+                                            <div class="card">
+                                                <a data-fancybox data-ratio="2" href="<?php echo $link; ?>">
+                                                    <img class="card-img-top img-fluid" src="assets/images/video-thumb/<?php echo $thumb;?>" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="meta">
                                     <span><?php echo $added_at;?></span>
                                     <h3><?php echo $title; ?></h3>
@@ -193,9 +205,11 @@
 
                         <a href="">mukulpande@tgpcet.com</a>
                     </div>
+                    <!--
                     <div class="footer-middle">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119225.53368540492!2d78.94467397495087!3d20.96062859913691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd497d972e508c9%3A0x3bef2f11476a08b9!2sTulsiramji%20Gaikwad%20Patil%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1623172009708!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
+-->
                     <div class="footer-right">
                         <span class="sub-head">Subscribe</span>
                         <h3>Newsletter</h3>

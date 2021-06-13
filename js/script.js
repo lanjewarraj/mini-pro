@@ -10,7 +10,6 @@ $(document).ready(function () {
         merge:true,
         video:true,
         loop:true,
-        margin:10,
         video:true,
         lazyLoad:true,
         center:true,
@@ -23,5 +22,10 @@ $(document).ready(function () {
             }
         }
     });
-    
+});
+
+//responsive tabs
+$('.responsiveTabsDemo').responsiveTabs({
+    startCollapsed: 'accordion',
+    animation: 'slide'
 });
