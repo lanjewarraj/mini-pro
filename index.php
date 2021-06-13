@@ -162,7 +162,7 @@
                                     <div class="row mb-4 g-0">
                                         <div class="card-deck col-9">
                                             <div class="card">
-                                                <a data-fancybox data-ratio="2" href="<?php echo $link; ?>">
+                                                <a data-fancybox href="<?php echo $link; ?>">
                                                     <img class="card-img-top img-fluid" src="assets/images/video-thumb/<?php echo $thumb;?>" />
                                                 </a>
                                             </div>
@@ -250,14 +250,14 @@
 
     <!-- jquery-->
     <script src="js/jquery/jquery-3.6.0.min.js"></script>
+    <!--fancybox-->
+    <script src="js/fancybox/jquery.fancybox.min.js"></script>
     <!-- bootstrap-->
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <!-- slik slider-->
     <script src="js/slik/slick.min.js"></script>
     <!-- owl caousel-->
     <script src="js/owl_caresoul/owl.carousel.min.js"></script>
-    <!--fancybox-->
-    <script src="js/fancybox/jquery.fancybox.min.js"></script>
     <!-- main script-->
     <script src="js/script.js"></script>
 </body>
