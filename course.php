@@ -27,6 +27,7 @@
                     $instructor = $rows['instructor'];
                     $video_link = $rows['video_link'];
                     $video_thumb = $rows['video_thumb'];
+                    $duration = $rows['vid_duration'];
                     
                     $at = $rows['added_at'];
                 ?>
@@ -50,10 +51,14 @@
                 <h3 class="h3 mr-2 mt-4 mb-4"><?php echo $heading; ?></h3>
                 <div class="insrtuctor-info">
                     <div class="row mb-4 mt-4">
-                        <div class="col-xl-4">
+                        <div class="col-xl-2">
                             <img src="assets/images/user.png" class="img-fluid" width="40px" height="40px">
                         </div>
-                        <div class="col-xl-8">
+                        <div class="col-xl-5">
+                            <h6 class="h6">Category</h6>
+                            <p><?php echo $category; ?></p>
+                        </div>
+                        <div class="col-xl-5">
                             <h6 class="h6">Instructor</h6>
                             <p><?php echo $instructor; ?></p>
                         </div>
@@ -109,10 +114,10 @@
             <div class="col-xl-4">
                 <div class="row mb-2">
                     <div class="col-xl-12">
-                        <p class="h5 mb-1">Course features</p>
+                        <p class="h4 mb-4 mt-4">Course features</p>
                         <div class="video-meta">
-                            <p><strong>Duration:</strong><?php echo $duration; ?></p>
-                            <p><strong>Instructor:</strong><?php echo $instructor; ?></p>
+                            <p><strong>Duration: </strong><?php echo $duration; ?></p>
+                            <p><strong>Instructor: </strong><?php echo $instructor; ?></p>
                         </div>
                     </div>
                 </div>
@@ -120,14 +125,30 @@
                     <div class="col-xl-12">
                         <p class="h5 mb-4">Related lecture</p>
                         <div class="rel-meta">
+                          <?php
+                           $vname = $_GET['vname'];
+                            $vid = $_GET['vid'];
+                            $q1 = "select * from courses where heading like '%$vname%'";
+                            $r1 = mysqli_query($connection,$q1);
+                            if($r){
+                                if(mysqli_num_rows($r1) > 0){
+                                while($rows1 = mysqli_fetch_assoc($r1)){
+                                $heading = $rows1['heading'];
+                                $video_thumb = $rows1['video_thumb'];
+                            ?>
                             <div class="row">
                                 <div class="col-xl-6">
                                     <img src="assets/images/video-thumb/<?php echo $video_thumb; ?>" width="80px" height="80px">
                                 </div>
                                 <div class="col-xl-6">
-                                    <h6 class="h6"><?php echo $heading; ?></h6>
+                                    <a href="?vid=<?php echo $vid?>&vname=<?php echo $vname;?>"><h6 class="h6"><?php echo $heading; ?></h6>
+                                    </a>
                                 </div>
                             </div>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -141,6 +162,7 @@
             echo mysqli_error($connection);
         }
     } 
+    }
 ?>
     <?php include("include/footer.php"); ?>
     <?php include("include/script.php"); ?>
