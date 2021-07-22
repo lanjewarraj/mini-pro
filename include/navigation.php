@@ -7,10 +7,10 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="index">Home</a>
                     </li>
                     <li>
-                        <a href="#">Courses</a>
+                        <a href="#course">Courses</a>
                     </li>
                 </ul>
             </div>

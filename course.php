@@ -11,6 +11,153 @@
 
 <body>
     <?php include("include/navigation.php"); ?>
+    <section id="course">
+        <div class="courses-container">
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="content">
+                                <div class="text">
+                                    <h5>Explore our courses</h5>
+                                    <h1>Find your courses</h1>
+                                    <form action="course" method="get">
+                                        <div class="row mb-2 mt-2">
+                                            <div class="col-md-4">
+                                                <select name="year" required>
+                                                    <option value="0">-Select year-</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select name="semester" required>
+                                                    <option>-Select semester-</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="submit" name="course-search">Search &#10141;</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-xl-4 mt-4">
+                    <?php 
+                    if(isset($_GET['year'])){
+                        $year = $_GET['year'];
+                        $sem = $_GET['semester'];
+                    $q = "select * from courses where year='$year' and semester='$sem'";
+                    $r = mysqli_query($connection,$q);
+                    echo "<h5>Showing result for:> <u>Year: $year </u>, <u>Semester: $sem </u></h5>";
+                    if($r){
+                        if(mysqli_num_rows($r) > 0){
+                            while($row = mysqli_fetch_array($r)){
+                                $id = $row['id'];
+                                $title = $row['heading'];
+                                $cat = $row['category'];
+                                $desc = $row['description'];
+                                $link = $row['video_link'];
+                                $thumb = $row['video_thumb'];
+                                $added_at = $row['added_at'];
+                                ?>
+                    <div class="item-video">
+                        <div class="video">
+                            <div class="row mb-4 g-0">
+                                <div class="card-deck col-9">
+                                    <div class="card">
+                                        <a data-fancybox href="<?php echo $link; ?>">
+                                            <img class="card-img-top img-fluid" src="assets/images/video-thumb/<?php echo $thumb;?>" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="meta">
+                            <span><?php echo $added_at;?></span>
+                            <h3><?php echo $title; ?></h3>
+                        </div>
+                    </div>
+                    <?php
+                            }
+                        }else{
+                            echo "No course founds";
+                        }
+                    }
+                    }
+                    ?>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <?php
+                    $q = "select * from courses order by id desc";
+                    $r = mysqli_query($connection,$q);
+                    if($r){
+                        if(mysqli_num_rows($r) > 0){
+                            while($row = mysqli_fetch_array($r)){
+                                $id = $row['id'];
+                                $title = $row['heading'];
+                                $cat = $row['category'];
+                                $desc = $row['description'];
+                                $link = $row['video_link'];
+                                $thumb = $row['video_thumb'];
+                                $added_at = $row['added_at'];
+                                ?>
+                <div class="col-md-3">
+                    <div class="item-video">
+                        <div class="video">
+                            <div class="card-deck">
+                                <div class="card">
+                                    <a data-fancybox href="<?php echo $link; ?>">
+                                        <img class="card-img-top img-fluid" src="assets/images/video-thumb/<?php echo $thumb;?>" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="meta">
+                            <span><?php echo $added_at;?></span>
+                            <h3><?php echo $title; ?></h3>
+                            <a href="view_details?id=<?php echo $id;?>">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                            }
+                        }else{
+                            echo "no record founds";
+                        }
+                    }
+                    ?>
+            </div>
+        </div>
+    </section>
+
+
+
     <?php
     if(isset($_GET['vid']) && isset($_GET['vname'])){
         $vid =  $_GET['vid'];
@@ -125,7 +272,7 @@
                     <div class="col-xl-12">
                         <p class="h5 mb-4">Related lecture</p>
                         <div class="rel-meta">
-                          <?php
+                            <?php
                            $vname = $_GET['vname'];
                             $vid = $_GET['vid'];
                             $q1 = "select * from courses where heading like '%$vname%'";
@@ -141,7 +288,8 @@
                                     <img src="assets/images/video-thumb/<?php echo $video_thumb; ?>" width="80px" height="80px">
                                 </div>
                                 <div class="col-xl-6">
-                                    <a href="?vid=<?php echo $vid?>&vname=<?php echo $vname;?>"><h6 class="h6"><?php echo $heading; ?></h6>
+                                    <a href="?vid=<?php echo $vid?>&vname=<?php echo $vname;?>">
+                                        <h6 class="h6"><?php echo $heading; ?></h6>
                                     </a>
                                 </div>
                             </div>

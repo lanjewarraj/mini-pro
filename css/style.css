@@ -585,3 +585,52 @@ header .nav-left {
     -webkit-transition: color .3s ease;
     transition: color .3s ease;
 }
+/*Course home*/
+.courses-container{
+    width: 100%;
+}
+.courses-container .header{
+    min-height: 500px;
+    width: 100%;
+    background: url(../assets/images/course-back.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.courses-container .content{
+    width: 100%;
+}
+.courses-container .content .text{
+    text-align-last: left;
+    width: 100%;
+    margin-top: 10%;
+    color: #fff;
+}
+.courses-container .content .text h5{
+    font-size: 14px;
+    font-style: italic;
+    margin: 14px 0;
+}
+.courses-container .content .text h1{
+    color: #FFFFFF;
+    font-size: 78px;
+    font-weight: 600;
+    line-height: 88px;
+    letter-spacing: -0.39px;
+}
+.courses-container .content .text select{
+    width: 100%;
+    padding: 18px 6px;
+    border: none;
+    background-color: #fff;
+    outline: none;
+}
+.courses-container .content .text button{
+    width: 50%;
+    padding: 18px 6px;
+    border: none;
+    outline: none;
+    background-color: #222;
+    color: #fff;
+    text-align:center;
+}

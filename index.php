@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require_once("config/connection.php");?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,17 +32,28 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="index">Home</a>
                     </li>
                     <li>
-                        <a href="#">Courses</a>
+                        <a href="course">Courses</a>
                     </li>
+                    <?php if(isset($_SESSION['USERNAME'])){?>
+                    <li>
+                        <a href="#"><u>Hi, <?php echo $_SESSION['USERNAME'];?></u></a>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </nav>
+        <?php if(!isset($_SESSION['USERNAME'])){?>
         <div class="nav-right">
             <i class="fa fa-user"></i> <a href="login">Login</a>
         </div>
+        <?php }else{ ?>
+        <div class="nav-right">
+            <i class="fa fa-user"></i> <a href="include/logout.inc.php">Logout</a>
+        </div>
+      <?php } ?>
     </header>
 
     <!-- hero section-->
@@ -70,13 +82,11 @@
                     <div class="inner-left">
 
                     </div>
-                    <div class="inner-right">text</div>
                 </div>
                 <div class="slider-3">
                     <div class="inner-left">
 
                     </div>
-                    <div class="inner-right">text</div>
                 </div>
             </div>
         </div>
