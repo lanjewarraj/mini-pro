@@ -182,7 +182,7 @@
                                 <div class="meta">
                                     <span><?php echo $added_at;?></span>
                                     <h3><?php echo $title; ?></h3>
-                                    <a href="view_details?id=<?php echo $id;?>">Read more</a>
+                                    <a href="course?vid=<?php echo $id;?>">Read more</a>
                                 </div>
                             </div>
                             <?php
