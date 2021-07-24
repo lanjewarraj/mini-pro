@@ -41,6 +41,9 @@
                     <li>
                         <a href="#"><u>Hi, <?php echo $_SESSION['USERNAME'];?></u></a>
                     </li>
+                    <li>
+                        <a href="add_video">Add video</a>
+                    </li>
                     <?php } ?>
                 </ul>
             </div>
